@@ -19,3 +19,8 @@ Herinneringen kunnen helpen om regelmatig te oefenen, maar zonder opdringerig te
 Tot slot is het handig als de app ook offline werkt, zodat je onderweg of op vakantie kunt blijven oefenen.
 Door deze combinatie van toegankelijkheid, variatie en persoonlijke begeleiding kan de taaltrainer‑app een waardevol hulpmiddel zijn voor iedereen die een nieuwe taal wil leren, 
 maar niet vast wil zitten aan vaste lessen of dikke boeken. Het doel is simpel: leren makkelijker maken, zodat meer mensen het volhouden en echt vooruitgang zien.
+
+
+
+
+Moet aangepassen worden
