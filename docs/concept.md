@@ -1,6 +1,5 @@
-De taaltrainer‑app is bedoeld voor mensen die op een toegankelijke manier Engels, Duits of Turks willen leren.
-Dat kan een leerling zijn die moeite heeft met nieuwe talen leren, 
-iemand die voor zijn werk een taal beter moet beheersen, of iemand die graag met familie in een andere taal wilt praten. 
+De taaltrainer‑app is bedoeld voor mensen die op een toegankelijke manier koerdisch of Turks willen leren. 
+Het is bedoelt voor iemand die voor zijn werk een taal beter moet beheersen, of iemand die graag met familie in een andere taal wilt praten. 
 Ook reizigers en mensen die gewoon nieuwsgierig zijn naar een nieuwe taal kunnen met de app uit de voeten. 
 Veel mensen lopen tegen dezelfde problemen aan wanneer ze een taal willen leren. 
 Ze hebben weinig tijd, vinden het lastig om gemotiveerd te blijven of weten niet goed waar ze moeten beginnen. 
