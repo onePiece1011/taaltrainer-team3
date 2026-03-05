@@ -9,3 +9,4 @@ dagelijks streak
 score bijhouden en
 puntenteller om punten bijhouden voor elke vraag die je goed maakt je krijgt extra punten
 functie omvoortgang op te slaan
+als je een antwoord fout hebt krijg je feedback over het vraag en in het eind krijg je feetback over de les
