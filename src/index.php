@@ -8,13 +8,15 @@
 <body>
     <main>
         <section class="inlogSect">
-            <h1>inloggen</h1>
-            <form action="login.php" method="post">
+            <div style="text-align:center">  
+                <h1>inloggen</h1>
+                <form action="login.php" method="post">
                 <label for="email">email</label>
                 <input type="email" name="email" id="email" required>
                 <label for="password">wachtwoord</label>
                 <input type="password" name="password" id="password" required>
                 <input type="submit" value="inloggen">
+            </div>  
             </form>
         </section>
     </main>
