@@ -1,3 +1,19 @@
+<?php
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "mydb";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +27,8 @@
             <div style="text-align:center">  
                 <h1>inloggen</h1>
                 <form action="login.php" method="post">
-                <label for="email">email</label>
-                <input type="email" name="email" id="email" required>
+                <label for="username">username</label>
+                <input type="username" name="username" id="username" required>
                 <label for="password">wachtwoord</label>
                 <input type="password" name="password" id="password" required>
                 <input type="submit" value="inloggen">
