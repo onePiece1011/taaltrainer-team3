@@ -17,4 +17,4 @@ maar niet vast wil zitten aan vaste lessen of dikke boeken. Het doel is simpel: 
 
 
 
-Moet aangepassen worden
+
