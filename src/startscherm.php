@@ -11,7 +11,7 @@
             <div>
             </div>
             <div>
-                <button><a href="index.php">uitloggen</a></button>
+                <a href="index.php"><button>uitloggen</button></a>
                 <button><p>dklfja;lafjsa;lsdfkj</p></button>
             </div>
         </section>

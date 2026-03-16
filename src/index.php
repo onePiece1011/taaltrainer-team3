@@ -22,7 +22,7 @@
             </div>
         </section>
         <div>
-            <p>Heb je nog geen account? <button><a href="signUp.php">Maak hier aan</a></button></p>
+            <p>Heb je nog geen account? <a href="signUp.php"><button>Maak hier aan</button></a></p>
         </div>
     </main>
     <a href="startscherm.php">test knop verwijderen</a>
