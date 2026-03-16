@@ -10,6 +10,10 @@
         <section>
             <div>
             </div>
+            <div>
+                <button><a href="index.php">uitloggen</a></button>
+                <button><p>dklfja;lafjsa;lsdfkj</p></button>
+            </div>
         </section>
     </main>
 </body>

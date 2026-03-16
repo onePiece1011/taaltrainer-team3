@@ -23,5 +23,6 @@
             <p>Heb je nog geen account? <button><a href="signUp.php">Maak hier aan</a></button></p>
         </div>
     </main>
+    <a href="startscherm.php">test knop verwijderen</a>
 </body>
 </html>
