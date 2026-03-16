@@ -8,8 +8,8 @@
 <body>
     <main>
         <section class="inlogSect">
-            <div style="text-align:center">  
-                <h1>Account aanmaken</h1>
+            <div>  
+                <h1>Sign up</h1>
                 <form action="login.php" method="post">
                     <label for="username">username</label>
                     <input type="username" name="username" id="username" required>
@@ -19,6 +19,9 @@
                 </form>
             </div>
         </section>
+        <div>
+            <p>Heb je al een account? <button><a href="index.php">Log hier in</a></button></p>
+        </div>
     </main>
 </body>
 </html>
