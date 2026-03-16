@@ -1,31 +1,15 @@
-<?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "mydb";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Sign up</title>
 </head>
 <body>
     <main>
         <section class="inlogSect">
             <div style="text-align:center">  
-                <h1>inloggen</h1>
+                <h1>Account aanmaken</h1>
                 <form action="login.php" method="post">
                     <label for="username">username</label>
                     <input type="username" name="username" id="username" required>
