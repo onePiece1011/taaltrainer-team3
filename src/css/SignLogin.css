@@ -1,10 +1,10 @@
-/* Duolingo-Level Purple Language Trainer Login CSS */
+/* Professional Purple Language Trainer Login CSS */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 body {
@@ -12,28 +12,22 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, #6a0dad, #3c096c);
+  background: linear-gradient(135deg, #4b2a82, #6d3bbd);
 }
 
 .container {
   background: #ffffff;
-  padding: 2.5rem 2rem;
-  border-radius: 28px;
-  width: 360px;
-  box-shadow: 0 12px 0 #2b0a4a, 0 20px 40px rgba(0,0,0,0.25);
+  padding: 2.5rem 2.2rem;
+  border-radius: 16px;
+  width: 380px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
   text-align: center;
-  animation: popIn 0.5s ease;
-}
-
-@keyframes popIn {
-  0% { transform: scale(0.9); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
 }
 
 .logo {
-  font-size: 2.2rem;
-  font-weight: 900;
-  color: #6a0dad;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #4b2a82;
   margin-bottom: 0.3rem;
 }
 
@@ -50,56 +44,52 @@ body {
 
 .input-group label {
   font-size: 0.75rem;
-  font-weight: bold;
-  color: #555;
+  font-weight: 600;
+  color: #444;
   margin-bottom: 0.3rem;
   display: block;
 }
 
 .input-group input {
   width: 100%;
-  padding: 0.85rem;
-  border-radius: 14px;
-  border: 2px solid #e5e5e5;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
   outline: none;
-  font-size: 0.95rem;
-  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
 }
 
 .input-group input:focus {
-  border-color: #9d4edd;
-  box-shadow: 0 0 0 4px rgba(157,78,221,0.15);
+  border-color: #6d3bbd;
+  box-shadow: 0 0 0 3px rgba(109,59,189,0.15);
 }
 
-/* playful button */
 .btn {
   width: 100%;
-  padding: 0.9rem;
+  padding: 0.8rem;
   border: none;
-  border-radius: 16px;
-  background: #9d4edd;
+  border-radius: 10px;
+  background: #6d3bbd;
   color: white;
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 0.95rem;
+  font-weight: 600;
   cursor: pointer;
   margin-top: 0.8rem;
-  box-shadow: 0 6px 0 #6a0dad;
-  transition: all 0.15s ease;
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.1s ease;
 }
 
 .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 0 #6a0dad;
+  background: #5a2fa3;
 }
 
 .btn:active {
-  transform: translateY(4px);
-  box-shadow: 0 2px 0 #6a0dad;
+  transform: translateY(1px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15) inset;
 }
 
-/* fun divider */
 .divider {
-  margin: 1.4rem 0;
+  margin: 1.5rem 0;
   font-size: 0.75rem;
   color: #aaa;
   position: relative;
@@ -110,62 +100,49 @@ body {
   content: "";
   position: absolute;
   top: 50%;
-  width: 35%;
-  height: 2px;
+  width: 40%;
+  height: 1px;
   background: #eee;
 }
 
 .divider::before { left: 0; }
 .divider::after { right: 0; }
 
-/* social button */
 .social-btn {
   width: 100%;
   padding: 0.7rem;
-  border-radius: 14px;
-  border: 2px solid #e5e5e5;
-  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fafafa;
   cursor: pointer;
-  font-weight: bold;
-  transition: 0.2s;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.2s ease, border 0.2s ease;
 }
 
 .social-btn:hover {
-  background: #f8f5ff;
-  border-color: #cdb4ff;
+  background: #f3f0ff;
+  border-color: #d6ccff;
 }
 
 .footer {
-  margin-top: 1.2rem;
+  margin-top: 1.4rem;
   font-size: 0.75rem;
   color: #777;
 }
 
 .footer a {
-  color: #9d4edd;
+  color: #6d3bbd;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .footer a:hover {
   text-decoration: underline;
 }
 
-/* error animation */
-.shake {
-  animation: shake 0.3s;
-}
-
-@keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
-}
-
-/* success highlight */
+/* subtle focus success */
 .success {
-  border-color: #4cc9f0 !important;
-  box-shadow: 0 0 0 4px rgba(76,201,240,0.2);
+  border-color: #2cb67d !important;
+  box-shadow: 0 0 0 3px rgba(44,182,125,0.15);
 }
