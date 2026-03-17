@@ -52,7 +52,7 @@
                     <input type="text" name="username" id="username" required>
                     <label for="password">wachtwoord</label>
                     <input type="password" name="password" id="password" required>
-                    <input type="submit" value="Sign up" name="submit">
+                    <input type="submit" id="btn" value="Sign up" name="submit">
                 </form>
             </div>
         </section>
