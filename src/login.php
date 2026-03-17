@@ -26,9 +26,9 @@
                 <h1>inloggen</h1>
                 <form method="post">
                     <label for="username">username</label>
-                    <input type="text" name="username" id="username" required><br><br>
+                    <input type="text" name="username" id="username" required>
                     <label for="password">wachtwoord</label>
-                    <input type="password" name="password" id="password" required><br><br>
+                    <input type="password" name="password" id="password" required>
                     <input type="submit" id="btn" value="Login" name="submit">
                 </form>
             </div>
