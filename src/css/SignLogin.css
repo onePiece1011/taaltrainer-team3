@@ -19,17 +19,17 @@ main {
     background-color: rgba(0, 0, 0, 0.85);
     padding: 40px 30px;
     border-radius: 12px;
-    box-shadow: 0 0 20px #6cfffa, 0 0 40px #6cfffa, 0 0 60px #6cfffa;
+    box-shadow: 0 0 20px #c400ff, 0 0 40px #c400ff, 0 0 60px #c400ff;
     width: 350px;
     max-width: 90%;
     text-align: center;
 }
 
 h1 {
-    color: #6cfffa;
+    color: #c400ff;
     font-size: 2em;
     margin-bottom: 30px;
-    text-shadow: 0 0 5px #6cfffa, 0 0 10px #6cfffa, 0 0 20px #6cfffa;
+    text-shadow: 0 0 5px #c400ff, 0 0 10px #c400ff, 0 0 20px #c400ff;
 }
 
 form {
@@ -41,8 +41,8 @@ form {
 label {
     margin-bottom: 5px;
     font-weight: bold;
-    color: #00ffd5;
-    text-shadow: 0 0 5px #00ffd5;
+    color: #e600ff;
+    text-shadow: 0 0 5px #e600ff;
 }
 
 input[type="text"],
@@ -50,36 +50,36 @@ input[type="password"] {
     padding: 12px;
     margin-bottom: 20px;
     border-radius: 8px;
-    border: 2px solid #00ffd5;
+    border: 2px solid #e600ff;
     background-color: rgba(0, 0, 0, 0.7);
     color: #fff;
     outline: none;
     transition: all 0.3s ease;
-    box-shadow: 0 0 5px #00ffd5, 0 0 10px #00ffd5 inset;
+    box-shadow: 0 0 5px #e600ff, 0 0 10px #e600ff inset;
 }
 
 input[type="text"]:focus,
 input[type="password"]:focus {
-    border-color: #6cfffa;
-    box-shadow: 0 0 10px #6cfffa, 0 0 20px #6cfffa inset;
+    border-color: #c400ff;
+    box-shadow: 0 0 10px #c400ff, 0 0 20px #c400ff inset;
 }
 
 #btn {
     padding: 12px;
-    background-color: #6cfffa;
+    background-color: #c400ff;
     color: #0f0f0f;
     font-weight: bold;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    text-shadow: 0 0 5px #00ffd5;
-    box-shadow: 0 0 10px #6cfffa, 0 0 20px #6cfffa inset;
+    text-shadow: 0 0 5px #e600ff;
+    box-shadow: 0 0 10px #c400ff, 0 0 20px #c400ff inset;
     transition: all 0.3s ease;
 }
 
 #btn:hover {
-    background-color: #00ffd5;
-    box-shadow: 0 0 15px #00ffd5, 0 0 30px #00ffd5 inset;
+    background-color: #e600ff;
+    box-shadow: 0 0 15px #e600ff, 0 0 30px #e600ff inset;
 }
 
 .inlogSect {
@@ -89,11 +89,11 @@ input[type="password"]:focus {
 p {
     margin-top: 15px;
     color: #fff;
-    text-shadow: 0 0 5px #00ffd5;
+    text-shadow: 0 0 5px #e600ff;
 }
 
 p a button {
-    background-color: #6cfffa;
+    background-color: #c400ff;
     color: #0f0f0f;
     border: none;
     padding: 8px 15px;
@@ -101,11 +101,11 @@ p a button {
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 0.9em;
-    text-shadow: 0 0 5px #00ffd5;
-    box-shadow: 0 0 10px #6cfffa, 0 0 20px #6cfffa inset;
+    text-shadow: 0 0 5px #e600ff;
+    box-shadow: 0 0 10px #c400ff, 0 0 20px #c400ff inset;
 }
 
 p a button:hover {
-    background-color: #00ffd5;
-    box-shadow: 0 0 15px #00ffd5, 0 0 30px #00ffd5 inset;
+    background-color: #e600ff;
+    box-shadow: 0 0 15px #e600ff, 0 0 30px #e600ff inset;
 }
