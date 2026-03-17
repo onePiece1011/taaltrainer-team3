@@ -26,7 +26,7 @@
             $sql = $conn->prepare("INSERT INTO users (username, PASSWORD) VALUES (?, ?)");
             $sql->bind_param("ss", $username, $password);
             if($sql->execute()){
-                header("Location: login.php");
+                header("Location: index.php");
                 exit();
             } else {
                 echo "Error: " . $sql->error;
