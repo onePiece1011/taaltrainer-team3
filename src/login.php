@@ -9,7 +9,7 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    echo "Connected successfully";
+    echo "";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +24,7 @@
         <section class="inlogSect">
             <div style="text-align:center" class=>  
                 <h1>inloggen</h1>
-                <form action="login.php" method="post">
+                <form method="post">
                     <label for="username">username</label>
                     <input type="text" name="username" id="username" required><br><br>
                     <label for="password">wachtwoord</label>
