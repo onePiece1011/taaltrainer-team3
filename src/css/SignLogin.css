@@ -26,7 +26,7 @@ main {
 }
 
 .titleLog {
-    color: darkgray;
+    color: gray;
     font-size: 2em;
     margin-bottom: 30px;
     text-shadow: 0 0 5px #c400ff, 0 0 10px #c400ff, 0 0 20px #c400ff;
