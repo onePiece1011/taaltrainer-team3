@@ -42,8 +42,10 @@
             $username = $_POST['username'];
             $password = $_POST['password'];
 
-            $sql = "SELECT * FROM users WHERE username = '$username'";
-            $result = $conn->query($sql);
+            $sql = $conn->prepare("SELECT * FROM users WHERE username = ?");
+            $sql->bind_param("s", $username);
+            $sql->execute();
+            $result = $sql->get_result();
 
             if($result->num_rows > 0){
                 $row = $result->fetch_assoc();

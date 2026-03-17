@@ -15,18 +15,21 @@
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
         // Check if username already exists
-        $check_sql = "SELECT * FROM users WHERE username = '$username'";
-        $check_result = $conn->query($check_sql);
+        $check_sql = $conn->prepare("SELECT * FROM users WHERE username = ?");
+        $check_sql->bind_param("s", $username);
+        $check_sql->execute();
+        $check_result = $check_sql->get_result();
 
         if($check_result->num_rows > 0){
             echo "Username already exists";
         } else {
-            $sql = "INSERT INTO users (username, PASSWORD) VALUES ('$username', '$password')";
-            if($conn->query($sql) === TRUE){
+            $sql = $conn->prepare("INSERT INTO users (username, PASSWORD) VALUES (?, ?)");
+            $sql->bind_param("ss", $username, $password);
+            if($sql->execute()){
                 header("Location: login.php");
                 exit();
             } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
+                echo "Error: " . $sql->error;
             }
         }
     }
