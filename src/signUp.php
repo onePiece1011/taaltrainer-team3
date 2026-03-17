@@ -21,7 +21,7 @@
         if($check_result->num_rows > 0){
             echo "Username already exists";
         } else {
-            $sql = "INSERT INTO users (username, email, PASSWORD) VALUES ('$username', NULL, '$password')";
+            $sql = "INSERT INTO users (username, PASSWORD) VALUES ('$username', '$password')";
             if($conn->query($sql) === TRUE){
                 header("Location: login.php");
                 exit();
