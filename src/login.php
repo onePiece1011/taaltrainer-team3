@@ -23,7 +23,7 @@
     <main>
         <section class="inlogSect">
             <div style="text-align:center" class=>  
-                <h1>inloggen</h1>
+                <h1 class="titleLog">inloggen</h1>
                 <form method="post">
                     <label for="username">username</label>
                     <input type="text" name="username" id="username" required>
