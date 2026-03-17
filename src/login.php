@@ -60,6 +60,5 @@
             }
     }
     ?>
-    <a href="index.php">test knop verwijderen</a>
 </body>
 </html>
