@@ -42,14 +42,19 @@
             $username = $_POST['username'];
             $password = $_POST['password'];
 
-            $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+            $sql = "SELECT * FROM users WHERE username = '$username'";
             $result = $conn->query($sql);
 
             if($result->num_rows > 0){
-                header("Location: index.php");
-                echo "Login successful";
+                $row = $result->fetch_assoc();
+                if(password_verify($password, $row['PASSWORD'])){
+                    header("Location: index.php");
+                    exit();
+                } else {
+                    echo "Invalid password";
+                }
             } else {
-               echo "Login failed";
+               echo "User not found";
             }
     }
     ?>
