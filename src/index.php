@@ -9,7 +9,7 @@
     <main>
         <section>
             <div>
-                <img src="Foto's/Logo.png" alt="Logo">
+                <img src="Foto's/Logo.png" width="300px" alt="Logo">
             </div>
             <div>
                 <a href="login.php"><button>uitloggen</button></a>
