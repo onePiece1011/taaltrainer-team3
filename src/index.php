@@ -9,7 +9,7 @@
 <body>
     <main>
         <section class="indexTop">
-            <div class="foto">
+            <div>
                 <img src="Foto's/Logo.png" class="logo" width="100px" alt="Logo">
             </div>
             <div>
