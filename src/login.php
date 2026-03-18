@@ -10,6 +10,28 @@
         die("Connection failed: " . $conn->connect_error);
     }
     echo "";
+
+    if(isset($_POST['submit'])){
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        $sql = $conn->prepare("SELECT * FROM users WHERE username = ?");
+        $sql->bind_param("s", $username);
+        $sql->execute();
+        $result = $sql->get_result();
+
+        if($result->num_rows > 0){
+            $row = $result->fetch_assoc();
+            if(password_verify($password, $row['PASSWORD'])){
+                header("Location: index.php");
+                exit();
+            } else {
+                $error = "Invalid password";
+            }
+        } else {
+            $error = "User not found";
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,28 +67,5 @@
             <p>Heb je nog geen account? <a href="signUp.php"><button>Maak hier aan</button></a></p>
         </div>
     </main>
-    <?php
-        if(isset($_POST['submit'])){
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-
-            $sql = $conn->prepare("SELECT * FROM users WHERE username = ?");
-            $sql->bind_param("s", $username);
-            $sql->execute();
-            $result = $sql->get_result();
-
-            if($result->num_rows > 0){
-                $row = $result->fetch_assoc();
-                if(password_verify($password, $row['PASSWORD'])){
-                    header("Location: index.php");
-                    exit();
-                } else {
-                    $error = "Invalid password";
-                }
-            } else {
-                $error = "User not found";
-            }
-    }
-    ?>
 </body>
 </html>
