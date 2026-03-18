@@ -9,7 +9,8 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    echo "";
+
+    $error = "";
 
     if(isset($_POST['submit'])){
         $username = $_POST['username'];
