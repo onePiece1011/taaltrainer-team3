@@ -7,7 +7,7 @@
 </head>
 <body>
     <main>
-        <section>
+        <section class="indexTop">
             <div>
                 <img src="Foto's/Logo.png" width="100px" alt="Logo">
             </div>
@@ -15,6 +15,14 @@
                 <a href="login.php"><button>uitloggen</button></a>
                 <button><p>dklfja;lafjsa;lsdfkj</p></button>
             </div>
+        </section>
+        <section>
+                <div>
+                    
+                </div>
+                <div>
+                    
+                </div>
         </section>
     </main>
 </body>
