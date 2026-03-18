@@ -2,8 +2,10 @@ body {
     background-color: black;
 }
 
-.knoppen {
-    border: 10 white;
+button.button  {
+    border: 10px;
+    border-color: green;
+    color: aqua;
 }
 .foto {
     left: 500px;
