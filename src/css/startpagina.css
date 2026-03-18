@@ -8,9 +8,18 @@ body {
     color: aqua;
     border-radius: 12px;
 }
-.foto {
-    border: 3px rgb;
+.logo {
+    border: 3px solid;
     border-color: aqua;
     left: 500px;
     top: 500;
+}
+.knop {
+    display: flex;
+}
+.knop div {
+    background-color: #f1f1f1;
+  margin: 10px;
+  padding: 20px;
+  font-size: 30px;
 }
