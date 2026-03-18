@@ -39,6 +39,7 @@
                             $sql = $conn->prepare("INSERT INTO users (username, PASSWORD) VALUES (?, ?)");
                             $sql->bind_param("ss", $username, $password);
                             if($sql->execute()){
+                                $_SESSION['username'] = $username;
                                 header("Location: index.php");
                                 exit();
                             } else {

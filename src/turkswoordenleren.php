@@ -1,6 +1,13 @@
 <?php
     session_start();
     include 'DatabaseConnect.php';
+    
+    if(!isset($_SESSION['username'])){
+        header("Location: login.php");
+        exit();
+    }
+    
+    $username = $_SESSION['username'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,9 +69,10 @@
                         $answer = $_POST['answer'];
                         $correct = $_POST['correct'];
                         if ($answer == $correct) {
-                            echo "<p'>Correct!</p>";
-                            $accountName = $_SESSION['username'];
-                            $sql = "UPDATE users SET xp_points = xp_points + 1 WHERE username = '$accountName'";
+                            echo "<p>Correct!</p>";
+                            $sql = $conn->prepare("UPDATE users SET xp_points = xp_points + 1 WHERE username = ?");
+                            $sql->bind_param("s", $username);
+                            $sql->execute();
                         } else {
                             echo "<p>Fout, het juiste antwoord is: " . htmlspecialchars($correct) . "</p>";
                         }
