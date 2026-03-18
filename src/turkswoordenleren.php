@@ -64,10 +64,12 @@
 
                 // When we run out, switch to wrong questions (repeat them)
                 if ($_SESSION['turks_question_index'] >= count($_SESSION['turks_questions'])) {
-                    if (!empty($_SESSION['turks_wrong'])) {
+                    if (!empty($_SESSION['turks_wrong']) && !$_SESSION['turks_repeat_phase']) {
                         $_SESSION['turks_questions'] = $_SESSION['turks_wrong'];
                         $_SESSION['turks_wrong'] = [];
                         $_SESSION['turks_question_index'] = 0;
+                        $_SESSION['turks_repeat_phase'] = true;
+                        $_SESSION['turks_total_questions'] += count($_SESSION['turks_questions']);
                     } else {
                         $_SESSION['turks_status'] = ['result' => 'finished'];
                     }
@@ -89,6 +91,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turks Leren</title>
+    <style>
+        .progress-container {
+            width: 100%;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .progress-bar {
+            height: 20px;
+            background-color: #4CAF50;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+        .progress-text {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <main>
