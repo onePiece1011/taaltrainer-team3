@@ -9,33 +9,7 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-
-    $error = "";
-
-    if(isset($_POST['submit'])){
-        $username = trim($_POST['username'] ?? '');
-        $password = $_POST['password'] ?? '';
-
-        // If username is empty, don't show “User not found” yet.
-        if ($username !== '') {
-            $sql = $conn->prepare("SELECT * FROM users WHERE username = ?");
-            $sql->bind_param("s", $username);
-            $sql->execute();
-            $result = $sql->get_result();
-
-            if($result->num_rows > 0){
-                $row = $result->fetch_assoc();
-                if(password_verify($password, $row['PASSWORD'])){
-                    header("Location: index.php");
-                    exit();
-                } else {
-                    $error = "Invalid password";
-                }
-            } else {
-                $error = "User not found";
-            }
-        }
-    }
+    echo "";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,16 +31,40 @@
                     <input type="password" name="password" id="password" required>
                     <input type="submit" id="btn" value="Login" name="submit">
                 </form>
-                <?php if ($error): ?>
-                    <div class="errorMessage">
-                        <?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?>
-                    </div>
-                <?php endif; ?>
+                
+                <?php
+                    if(isset($_POST['submit'])){ 
+                        echo $error;
+                    }
+                ?>
             </div>
         </section>
         <div>
             <p>Heb je nog geen account? <a href="signUp.php"><button>Maak hier aan</button></a></p>
         </div>
     </main>
+    <?php
+        if(isset($_POST['submit'])){
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+
+            $sql = $conn->prepare("SELECT * FROM users WHERE username = ?");
+            $sql->bind_param("s", $username);
+            $sql->execute();
+            $result = $sql->get_result();
+
+            if($result->num_rows > 0){
+                $row = $result->fetch_assoc();
+                if(password_verify($password, $row['PASSWORD'])){
+                    header("Location: index.php");
+                    exit();
+                } else {
+                    $error = "Invalid password";
+                }
+            } else {
+                $error = "User not found";
+            }
+    }
+    ?>
 </body>
 </html>
