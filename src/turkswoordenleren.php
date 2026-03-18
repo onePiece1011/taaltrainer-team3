@@ -127,6 +127,14 @@
                     } elseif (!$currentQuestion) {
                         echo '<p>Geen woorden beschikbaar.</p>';
                     } else {
+                        $progress = ($_SESSION['turks_answered'] + $_SESSION['turks_question_index'] + 1) / $_SESSION['turks_total_questions'] * 100;
+                        $currentQuestionNumber = $_SESSION['turks_answered'] + $_SESSION['turks_question_index'] + 1;
+
+                        echo '<div class="progress-container">';
+                        echo '<div class="progress-bar" style="width: ' . $progress . '%;"></div>';
+                        echo '</div>';
+                        echo '<p class="progress-text">Vraag ' . $currentQuestionNumber . ' van ' . $_SESSION['turks_total_questions'] . '</p>';
+
                         $turkish_word = $currentQuestion['turkish_word'];
                         $correct_dutch = $currentQuestion['dutch_word'];
 
