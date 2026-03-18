@@ -18,8 +18,6 @@
         $_SESSION['turks_wrong'] = [];
         $_SESSION['turks_status'] = null;
         $_SESSION['turks_repeat_phase'] = false;
-        $_SESSION['turks_answered'] = 0;
-        $_SESSION['turks_total_questions'] = 20;
     }
 
     // Handle answer submission or restart
@@ -69,7 +67,6 @@
                         $_SESSION['turks_wrong'] = [];
                         $_SESSION['turks_question_index'] = 0;
                         $_SESSION['turks_repeat_phase'] = true;
-                        $_SESSION['turks_total_questions'] += count($_SESSION['turks_questions']);
                     } else {
                         $_SESSION['turks_status'] = ['result' => 'finished'];
                     }
@@ -91,25 +88,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turks Leren</title>
-    <style>
-        .progress-container {
-            width: 100%;
-            background-color: #f0f0f0;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-        .progress-bar {
-            height: 20px;
-            background-color: #4CAF50;
-            border-radius: 10px;
-            transition: width 0.3s ease;
-        }
-        .progress-text {
-            text-align: center;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-    </style>
 </head>
 <body>
     <main>
@@ -127,14 +105,6 @@
                     } elseif (!$currentQuestion) {
                         echo '<p>Geen woorden beschikbaar.</p>';
                     } else {
-                        $progress = ($_SESSION['turks_answered'] + $_SESSION['turks_question_index'] + 1) / $_SESSION['turks_total_questions'] * 100;
-                        $currentQuestionNumber = $_SESSION['turks_answered'] + $_SESSION['turks_question_index'] + 1;
-
-                        echo '<div class="progress-container">';
-                        echo '<div class="progress-bar" style="width: ' . $progress . '%;"></div>';
-                        echo '</div>';
-                        echo '<p class="progress-text">Vraag ' . $currentQuestionNumber . ' van ' . $_SESSION['turks_total_questions'] . '</p>';
-
                         $turkish_word = $currentQuestion['turkish_word'];
                         $correct_dutch = $currentQuestion['dutch_word'];
 
