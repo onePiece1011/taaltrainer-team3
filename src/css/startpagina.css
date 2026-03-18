@@ -9,6 +9,8 @@ body {
     border-radius: 12px;
 }
 .foto {
+    border: 3px rgb;
+    border-color: aqua;
     left: 500px;
     top: 500;
 }

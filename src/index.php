@@ -10,7 +10,7 @@
     <main>
         <section class="indexTop">
             <div class="foto">
-                <img src="Foto's/Logo.png" width="100px" alt="Logo">
+                <img src="Foto's/Logo.png" class="logo" width="100px" alt="Logo">
             </div>
             <div>
                 <a href="login.php"><button class="button">uitloggen</button></a>
