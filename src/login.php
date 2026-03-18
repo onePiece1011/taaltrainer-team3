@@ -11,6 +11,8 @@
     }
     echo "";
 
+    $error = "";
+
     if(isset($_POST['submit'])){
         $username = $_POST['username'];
         $password = $_POST['password'];
@@ -54,12 +56,7 @@
                     <input type="submit" id="btn" value="Login" name="submit">
                 </form>
                 <?php
-                    if ($error = null){
-                        $error = "";
-                        echo $error;
-                    } else {
-                        echo $error;
-                    }
+                    echo $error;
                 ?>
             </div>
         </section>
