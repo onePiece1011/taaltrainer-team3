@@ -11,8 +11,6 @@
     }
     echo "";
 
-    $error = "";
-
     if(isset($_POST['submit'])){
         $username = $_POST['username'];
         $password = $_POST['password'];
@@ -55,9 +53,11 @@
                     <input type="password" name="password" id="password" required>
                     <input type="submit" id="btn" value="Login" name="submit">
                 </form>
-                <?php
-                    echo $error;
-                ?>
+                <?php if ($error): ?>
+                    <div class="errorMessage">
+                        <?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?>
+                    </div>
+                <?php endif; ?>
             </div>
         </section>
         <div>
