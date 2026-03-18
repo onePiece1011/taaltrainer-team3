@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/start pagina.css">
 </head>
 <body>
     <main>
         <section class="indexTop">
-            <div>
+            <div class="foto">
                 <img src="Foto's/Logo.png" width="100px" alt="Logo">
             </div>
             <div>
