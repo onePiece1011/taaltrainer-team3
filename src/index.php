@@ -18,11 +18,16 @@
             </div>
         </section>
         <section>
+            <div>
+                <a href="turksleren.php"><button>Truks</button></a>
+            </div>
+            <div>
+                <a href="koerdischleren.php"><button>Koerdisch</button></a>
+            </div>
+        </section>
+        <section>
                 <div>
                     <a href="lijst.php"><button>pesis</button></a>
-                    
-                </div>
-                <div>
                     
                 </div>
         </section>
