@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include 'DatabaseConnect.php';
 ?>
 <!DOCTYPE html>
@@ -34,6 +35,7 @@
                         if($result->num_rows > 0){
                             $row = $result->fetch_assoc();
                             if(password_verify($password, $row['PASSWORD'])){
+                                $_SESSION['username'] = $username;
                                 header("Location: index.php");
                                 exit();
                             } else {

@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include 'DatabaseConnect.php';
 ?>
 <!DOCTYPE html>
@@ -14,7 +15,6 @@
             <div>
                 <h1>Turks oefenen</h1>
                 <?php
-                    // Haal alle woorden op uit de database
                     $sql = "SELECT * FROM vocabulary WHERE turkish_word IS NOT NULL AND dutch_word IS NOT NULL AND category = 'Woorden'";
                     $result = $conn->query($sql);
 
@@ -28,12 +28,10 @@
                     if (empty($vocab)) {
                         echo "<p>Geen woorden beschikbaar.</p>";
                     } else {
-                        // Kies een willekeurig woord voor de vraag
                         $question = $vocab[array_rand($vocab)];
                         $turkish_word = $question['turkish_word'];
                         $correct_dutch = $question['dutch_word'];
 
-                        // Haal 3 verkeerde opties op
                         $wrong_options = [];
                         $all_dutch = array_column($vocab, 'dutch_word');
                         shuffle($all_dutch);
@@ -43,7 +41,6 @@
                             }
                         }
 
-                        // Combineer correct en verkeerd, en schud door elkaar
                         $options = array_merge([$correct_dutch], $wrong_options);
                         shuffle($options);
                     }
@@ -65,9 +62,11 @@
                         $answer = $_POST['answer'];
                         $correct = $_POST['correct'];
                         if ($answer == $correct) {
-                            echo "<p style='color: green;'>Correct!</p>";
+                            echo "<p'>Correct!</p>";
+                            $accountName = $_SESSION['username'];
+                            $sql = "UPDATE users SET score = score + 1 WHERE username = '$accountName'";
                         } else {
-                            echo "<p style='color: red;'>Fout, het juiste antwoord is: " . htmlspecialchars($correct) . "</p>";
+                            echo "<p>Fout, het juiste antwoord is: " . htmlspecialchars($correct) . "</p>";
                         }
                     }
                 ?>
