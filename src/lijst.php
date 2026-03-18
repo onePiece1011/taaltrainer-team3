@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Woordenlijst - Taaltrainer</title>
-    <link rel="stylesheet" href="css/startpagina.css">
+    <link rel="stylesheet" href="css/lijst.css">
 </head>
 <body>
     <header>
