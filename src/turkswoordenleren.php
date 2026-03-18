@@ -17,6 +17,9 @@
         $_SESSION['turks_question_index'] = 0;
         $_SESSION['turks_wrong'] = [];
         $_SESSION['turks_status'] = null;
+        $_SESSION['turks_repeat_phase'] = false;
+        $_SESSION['turks_answered'] = 0;
+        $_SESSION['turks_total_questions'] = 20;
     }
 
     // Handle answer submission or restart
@@ -27,6 +30,9 @@
             unset($_SESSION['turks_question_index']);
             unset($_SESSION['turks_wrong']);
             unset($_SESSION['turks_status']);
+            unset($_SESSION['turks_repeat_phase']);
+            unset($_SESSION['turks_answered']);
+            unset($_SESSION['turks_total_questions']);
             header('Location: turkswoordenleren.php');
             exit();
         } elseif (isset($_POST['question_index'])) {
