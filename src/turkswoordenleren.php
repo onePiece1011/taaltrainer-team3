@@ -65,14 +65,19 @@
                 <?php endif; ?>
 
                 <?php
+                    if(isset($_GET['correct'])) {
+                        echo "<p style='color: green; font-weight: bold;'>Correct!</p>";
+                    }
+                    
                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         $answer = $_POST['answer'];
                         $correct = $_POST['correct'];
                         if ($answer == $correct) {
-                            echo "<p>Correct!</p>";
                             $sql = $conn->prepare("UPDATE users SET xp_points = xp_points + 1 WHERE username = ?");
                             $sql->bind_param("s", $username);
                             $sql->execute();
+                            header("Location: turkswoordenleren.php?correct=1");
+                            exit();
                         } else {
                             echo "<p>Fout, het juiste antwoord is: " . htmlspecialchars($correct) . "</p>";
                         }
