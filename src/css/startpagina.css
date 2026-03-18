@@ -2,10 +2,11 @@ body {
     background-color: black;
 }
 
-button.button  {
-    border: 10px;
+.button  {
+    border: 3px solid;
     border-color: green;
     color: aqua;
+    border-radius: 12px;
 }
 .foto {
     left: 500px;
