@@ -65,7 +65,7 @@
                 <?php endif; ?>
 
                 <?php
-                    if(isset($_GET['correct'])) {
+                    if(isset($_GET['correct']) && $_SERVER['REQUEST_METHOD'] != 'POST') {
                         echo "<p style='color: green; font-weight: bold;'>Correct!</p>";
                     }
                     
