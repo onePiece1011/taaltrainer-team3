@@ -64,7 +64,7 @@
                         if ($answer == $correct) {
                             echo "<p'>Correct!</p>";
                             $accountName = $_SESSION['username'];
-                            $sql = "UPDATE users SET score = score + 1 WHERE username = '$accountName'";
+                            $sql = "UPDATE users SET xp_points = xp_points + 1 WHERE username = '$accountName'";
                         } else {
                             echo "<p>Fout, het juiste antwoord is: " . htmlspecialchars($correct) . "</p>";
                         }
