@@ -13,24 +13,27 @@
     $error = "";
 
     if(isset($_POST['submit'])){
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+        $username = trim($_POST['username'] ?? '');
+        $password = $_POST['password'] ?? '';
 
-        $sql = $conn->prepare("SELECT * FROM users WHERE username = ?");
-        $sql->bind_param("s", $username);
-        $sql->execute();
-        $result = $sql->get_result();
+        // If username is empty, don't show “User not found” yet.
+        if ($username !== '') {
+            $sql = $conn->prepare("SELECT * FROM users WHERE username = ?");
+            $sql->bind_param("s", $username);
+            $sql->execute();
+            $result = $sql->get_result();
 
-        if($result->num_rows > 0){
-            $row = $result->fetch_assoc();
-            if(password_verify($password, $row['PASSWORD'])){
-                header("Location: index.php");
-                exit();
+            if($result->num_rows > 0){
+                $row = $result->fetch_assoc();
+                if(password_verify($password, $row['PASSWORD'])){
+                    header("Location: index.php");
+                    exit();
+                } else {
+                    $error = "Invalid password";
+                }
             } else {
-                $error = "Invalid password";
+                $error = "User not found";
             }
-        } else {
-            $error = "User not found";
         }
     }
 ?>
