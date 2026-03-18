@@ -19,10 +19,10 @@
         </section>
         <section>
             <div>
-                <a href="turksleren.php"><button>Truks</button></a>
+                <a href="turksmenu.php"><button>Truks</button></a>
             </div>
             <div>
-                <a href="koerdischleren.php"><button>Koerdisch</button></a>
+                <a href="koerdischmenu.php"><button>Koerdisch</button></a>
             </div>
         </section>
         <section>

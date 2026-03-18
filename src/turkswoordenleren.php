@@ -15,7 +15,7 @@
                 <h1>Turks oefenen</h1>
                 <?php
                     // Haal alle woorden op uit de database
-                    $sql = "SELECT * FROM vocabulary WHERE turkish_word IS NOT NULL AND dutch_word IS NOT NULL";
+                    $sql = "SELECT * FROM vocabulary WHERE turkish_word IS NOT NULL AND dutch_word IS NOT NULL AND category = 'Woorden'";
                     $result = $conn->query($sql);
 
                     $vocab = [];
