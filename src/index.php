@@ -12,7 +12,7 @@
             <div class="foto">
                 <img src="Foto's/Logo.png" width="100px" alt="Logo">
             </div>
-            <div>
+            <div class="knoppen">
                 <a href="login.php"><button>uitloggen</button></a>
                 <button><p>dklfja;lafjsa;lsdfkj</p></button>
             </div>

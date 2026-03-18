@@ -1,3 +1,16 @@
+body {
+    background-color: black;
+}
+
+div.knoppen {
+    border: 3 white
+}
+
+
+
+
+
+
 div.foto {
     left: 500px;
     top: 500;
