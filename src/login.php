@@ -31,7 +31,14 @@
                     <input type="password" name="password" id="password" required>
                     <input type="submit" id="btn" value="Login" name="submit">
                 </form>
-                <?php echo $error: ?>
+                <?php
+                    if ($error = null){
+                        $error = "";
+                        echo $error;
+                    } else {
+                        echo $error;
+                    }
+                ?>
             </div>
         </section>
         <div>
