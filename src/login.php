@@ -31,6 +31,7 @@
                     <input type="password" name="password" id="password" required>
                     <input type="submit" id="btn" value="Login" name="submit">
                 </form>
+                <?php echo $error: ?>
             </div>
         </section>
         <div>
@@ -53,10 +54,10 @@
                     header("Location: index.php");
                     exit();
                 } else {
-                    echo "Invalid password";
+                    $error = "Invalid password";
                 }
             } else {
-               echo "User not found";
+                $error = "User not found";
             }
     }
     ?>
