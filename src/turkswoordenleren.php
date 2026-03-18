@@ -18,6 +18,7 @@
         $_SESSION['turks_wrong'] = [];
         $_SESSION['turks_status'] = null;
         $_SESSION['turks_repeat_phase'] = false;
+        $_SESSION['turks_answered'] = 0;
     }
 
     // Handle answer submission or restart
