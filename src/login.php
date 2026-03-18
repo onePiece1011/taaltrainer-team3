@@ -10,6 +10,8 @@
         die("Connection failed: " . $conn->connect_error);
     }
     echo "";
+
+    $error = "";
 ?>
 <!DOCTYPE html>
 <html lang="en">
