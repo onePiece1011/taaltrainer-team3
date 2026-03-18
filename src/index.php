@@ -1,9 +1,5 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['username'])){
-        header("Location: login.php");
-        exit();
-    }
+    require 'auth.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +16,7 @@
                 <img src="Foto's/Logo.png" class="logo" width="100px" alt="Logo">
             </div>
             <div class= "knop">
-             <div>   <a href="login.php"><button class="button">uitloggen</button></a> </div>
+             <div>   <a href="logout.php"><button class="button">uitloggen</button></a> </div>
             <div>    <button class="button"><p>dklfja;lafjsa;lsdfkj</p></button></div>
             </div>
         </section>

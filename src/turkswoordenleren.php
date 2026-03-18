@@ -1,12 +1,7 @@
 <?php
-    session_start();
+    require 'auth.php';
     include 'DatabaseConnect.php';
-    
-    if(!isset($_SESSION['username'])){
-        header("Location: login.php");
-        exit();
-    }
-    
+
     $username = $_SESSION['username'];
 ?>
 <!DOCTYPE html>
