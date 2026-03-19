@@ -4,6 +4,7 @@
 
     $username = $_SESSION['username'];
 
+    // Check if reset is requested
     if (isset($_GET['reset']) && $_GET['reset'] === 'true') {
         unset($_SESSION['turks_questions']);
         unset($_SESSION['turks_question_index']);
@@ -43,6 +44,19 @@
             unset($_SESSION['turks_total_questions']);
             header('Location: turkswoordenleren.php');
             exit();
+        } elseif (isset($_POST['back_to_menu'])) {
+            // Reset de sessievariabelen voor de quiz
+            unset($_SESSION['turks_questions']);
+            unset($_SESSION['turks_question_index']);
+            unset($_SESSION['turks_wrong']);
+            unset($_SESSION['turks_status']);
+            unset($_SESSION['turks_repeat_phase']);
+            unset($_SESSION['turks_answered']);
+            unset($_SESSION['turks_total_questions']);
+            
+            // Stuur de gebruiker terug naar index.php
+            header('Location: index.php');
+            exit();
         } elseif (isset($_POST['question_index'])) {
             $index = (int)$_POST['question_index'];
             $answer = $_POST['answer'] ?? '';
@@ -70,6 +84,7 @@
 
                 $_SESSION['turks_question_index']++;
 
+                // When we run out, switch to wrong questions (repeat them)
                 if ($_SESSION['turks_question_index'] >= count($_SESSION['turks_questions'])) {
                     if (!empty($_SESSION['turks_wrong']) && !$_SESSION['turks_repeat_phase']) {
                         $_SESSION['turks_questions'] = $_SESSION['turks_wrong'];
@@ -133,12 +148,12 @@
                         $options = array_merge([$correct_dutch], $wrong_options);
                         shuffle($options);
 
-
+                        // Show repeat phase indicator if applicable
                         if ($isRepeatPhase) {
                             echo '<p><strong>Herhalingsfase:</strong> Je oefent nu de woorden die je eerder fout had.</p>';
                         }
 
-
+                        // Added question progress display
                         echo '<p class="question-progress">Vraag ' . ($currentIndex + 1) . ' van ' . $totalQuestions . '</p>';
                         echo '<p>Wat is de Nederlandse vertaling van: <strong>' . htmlspecialchars($turkish_word) . '</strong></p>';
                         echo '<form method="post">';
@@ -148,7 +163,7 @@
                         }
                         echo '<input type="hidden" name="question_index" value="' . $currentIndex . '">';
                         
- 
+                        // Button container with submit and reset buttons
                         echo '<div style="display: flex; gap: 10px; margin-top: 10px;">';
                         echo '<input type="submit" value="Controleer">';
                         echo '<button type="submit" name="restart" value="1">Opnieuw beginnen</button>';
@@ -156,11 +171,12 @@
                         echo '</form>';
                     }
 
+                    // Show status message and clear it
                     if (isset($_SESSION['turks_status']) && is_array($_SESSION['turks_status'])) {
                         if ($_SESSION['turks_status']['result'] === 'correct') {
-                            echo '<p>Correct!</p>';
+                            echo '<p style="color: green; font-weight: bold;">Correct!</p>';
                         } elseif ($_SESSION['turks_status']['result'] === 'wrong') {
-                            echo '<p>Fout, het juiste antwoord is: ' . htmlspecialchars($_SESSION['turks_status']['correct']) . '</p>';
+                            echo '<p style="color: red; font-weight: bold;">Fout, het juiste antwoord is: ' . htmlspecialchars($_SESSION['turks_status']['correct']) . '</p>';
                         }
                         unset($_SESSION['turks_status']);
                     }
@@ -168,10 +184,10 @@
             </div>
         </section>
         
-        <div>
-            <form action="menu.php" method="post">
-                <input type="hidden" name="reset_turks" value="true">
-                <button type="submit">Terug naar menu</button>
+        <!-- Terug naar menu knop die de quiz reset -->
+        <div style="margin-top: 20px;">
+            <form method="post">
+                <button type="submit" name="back_to_menu" value="1">Terug naar menu</button>
             </form>
         </div>
     </main>
