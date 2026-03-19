@@ -4,7 +4,7 @@
 
     $username = $_SESSION['username'];
 
-    // Check if reset is requested
+    // Check if reset is requested via GET parameter
     if (isset($_GET['reset']) && $_GET['reset'] === 'true') {
         unset($_SESSION['turks_questions']);
         unset($_SESSION['turks_question_index']);
@@ -114,7 +114,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turks Leren</title>
-    <link rel="stylesheet" href="css/1vooralles.css">
 </head>
 <body>
     <main>
@@ -125,7 +124,7 @@
                     $status = $_SESSION['turks_status'] ?? null;
 
                     if ($finished) {
-                        echo '<p style="font-weight: bold;">Je hebt de vragenlijst afgerond!</p>';
+                        echo '<p>Je hebt de vragenlijst afgerond!</p>';
                         echo '<form method="post">';
                         echo '<button type="submit" name="restart" value="1">Opnieuw beginnen</button>';
                         echo '</form>';
@@ -163,20 +162,17 @@
                         }
                         echo '<input type="hidden" name="question_index" value="' . $currentIndex . '">';
                         
-                        // Button container with submit and reset buttons
-                        echo '<div style="display: flex; gap: 10px; margin-top: 10px;">';
+                        // Submit button for answering the question
                         echo '<input type="submit" value="Controleer">';
-                        echo '<button type="submit" name="restart" value="1">Opnieuw beginnen</button>';
-                        echo '</div>';
                         echo '</form>';
                     }
 
                     // Show status message and clear it
                     if (isset($_SESSION['turks_status']) && is_array($_SESSION['turks_status'])) {
                         if ($_SESSION['turks_status']['result'] === 'correct') {
-                            echo '<p style="color: green; font-weight: bold;">Correct!</p>';
+                            echo '<p>Correct!</p>';
                         } elseif ($_SESSION['turks_status']['result'] === 'wrong') {
-                            echo '<p style="color: red; font-weight: bold;">Fout, het juiste antwoord is: ' . htmlspecialchars($_SESSION['turks_status']['correct']) . '</p>';
+                            echo '<p>Fout, het juiste antwoord is: ' . htmlspecialchars($_SESSION['turks_status']['correct']) . '</p>';
                         }
                         unset($_SESSION['turks_status']);
                     }
@@ -184,8 +180,12 @@
             </div>
         </section>
         
-        <!-- Terug naar menu knop die de quiz reset -->
-        <div style="margin-top: 20px;">
+        <!-- Reset and back to menu buttons -->
+        <div>
+            <form method="post">
+                <button type="submit" name="restart" value="1">Opnieuw beginnen</button>
+            </form>
+            
             <form method="post">
                 <button type="submit" name="back_to_menu" value="1">Terug naar menu</button>
             </form>
