@@ -4,7 +4,6 @@
 
     $username = $_SESSION['username'];
 
-    // Initialize question queue (20 unique questions) and tracking.
     if (!isset($_SESSION['turks_questions']) || !isset($_SESSION['turks_question_index'])) {
         $result = $conn->query("SELECT turkish_word, dutch_word FROM vocabulary WHERE turkish_word IS NOT NULL AND dutch_word IS NOT NULL AND category = 'Woorden'");
         $all = [];
@@ -21,10 +20,8 @@
         $_SESSION['turks_answered'] = 0;
     }
 
-    // Handle answer submission or restart
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['restart'])) {
-            // Reset the quiz
             unset($_SESSION['turks_questions']);
             unset($_SESSION['turks_question_index']);
             unset($_SESSION['turks_wrong']);
@@ -82,6 +79,7 @@
     $currentIndex = $_SESSION['turks_question_index'];
     $currentQuestion = $_SESSION['turks_questions'][$currentIndex] ?? null;
     $finished = isset($_SESSION['turks_status']['result']) && $_SESSION['turks_status']['result'] === 'finished';
+    $totalQuestions = count($_SESSION['turks_questions']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -122,6 +120,8 @@
                         $options = array_merge([$correct_dutch], $wrong_options);
                         shuffle($options);
 
+                        // Added question progress display
+                        echo '<p class="question-progress">Question ' . ($currentIndex + 1) . ' of ' . $totalQuestions . '</p>';
                         echo '<p>Wat is de Nederlandse vertaling van: <strong>' . htmlspecialchars($turkish_word) . '</strong></p>';
                         echo '<form method="post">';
                         foreach($options as $i => $opt) {
@@ -138,7 +138,7 @@
                         if ($_SESSION['turks_status']['result'] === 'correct') {
                             echo '<p style="color: green; font-weight: bold;">Correct!</p>';
                         } elseif ($_SESSION['turks_status']['result'] === 'wrong') {
-                            echo '<p style="color: red; font-weight: bold;">Fout, het juiste antwoord is: ' . htmlspecialchars($_SESSION['turks_status']['correct']) . '</p>';
+                            echo '<p style="color: red; font-weight: bold;">Wrong, the correct answer is: ' . htmlspecialchars($_SESSION['turks_status']['correct']) . '</p>';
                         }
                         unset($_SESSION['turks_status']);
                     }
