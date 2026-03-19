@@ -1,0 +1,128 @@
+/* Universele CSS voor alle pagina's */
+
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    padding: 20px;
+    background-color: #333; /* Grijs */
+    border: 2px solid #a101a1; /* Paars rand */
+    box-shadow: 0 0 15px #a101a1; /* Neon paars gloed */
+    margin: 20px;
+    border-radius: 10px;
+}
+
+section {
+    background-color: #444; /* Lichtere grijs */
+    border: 2px solid #a101a1; /* Cyan neon rand */
+    box-shadow: 0 0 15px #a101a1; /* Neon cyan gloed */
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+div {
+    margin: 10px 0;
+}
+
+button {
+    background-color: #800080; /* Paars */
+    color: white;
+    border: 2px solid #ff00ff;
+    box-shadow: 0 0 10px #ff00ff;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #a000a0; /* Lichtere paars */
+    box-shadow: 0 0 20px #ff00ff;
+}
+
+input[type="text"], input[type="password"], input[type="submit"] {
+    background-color: #555;
+    color: white;
+    border: 2px solid #a101a1;
+    box-shadow: 0 0 10px #a101a1;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #800080;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #a000a0;
+    box-shadow: 0 0 20px #ff00ff;
+}
+
+label {
+    display: block;
+    margin: 5px 0;
+}
+
+h1, h2 {
+    color: white;
+    text-shadow: 0 0 10px #a101a1;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #444;
+    border: 2px solid #a101a1;
+    box-shadow: 0 0 15px #a101a1;
+}
+
+th, td {
+    border: 1px solid #a101a1;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #555;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #333;
+}
+
+a {
+    color: #00ffff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-shadow: 0 0 10px #ffffff;
+}
+
+form {
+    background-color: #333;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #ff00ff;
+    box-shadow: 0 0 15px #ff00ff;
+}
+
+p {
+    color: white;
+}
+
+.question-progress {
+    font-weight: bold;
+    color: #000000;
+    text-shadow: 0 0 5px #ffffff;
+}

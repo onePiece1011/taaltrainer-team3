@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
-    <link rel="stylesheet" href="css/SignLogin.css">
+    <link rel="stylesheet" href="css/1vooralles.css">
 </head>
 <body>
     <main>
