@@ -58,7 +58,6 @@
 
                 $_SESSION['turks_question_index']++;
 
-                // When we run out, switch to wrong questions (repeat them)
                 if ($_SESSION['turks_question_index'] >= count($_SESSION['turks_questions'])) {
                     if (!empty($_SESSION['turks_wrong']) && !$_SESSION['turks_repeat_phase']) {
                         $_SESSION['turks_questions'] = $_SESSION['turks_wrong'];
@@ -121,7 +120,7 @@
                         shuffle($options);
 
                         // Added question progress display
-                        echo '<p class="question-progress">Question ' . ($currentIndex + 1) . ' of ' . $totalQuestions . '</p>';
+                        echo '<p class="question-progress">Vraag ' . ($currentIndex + 1) . ' van ' . $totalQuestions . '</p>';
                         echo '<p>Wat is de Nederlandse vertaling van: <strong>' . htmlspecialchars($turkish_word) . '</strong></p>';
                         echo '<form method="post">';
                         foreach($options as $i => $opt) {
@@ -138,11 +137,14 @@
                         if ($_SESSION['turks_status']['result'] === 'correct') {
                             echo '<p style="color: green; font-weight: bold;">Correct!</p>';
                         } elseif ($_SESSION['turks_status']['result'] === 'wrong') {
-                            echo '<p style="color: red; font-weight: bold;">Wrong, the correct answer is: ' . htmlspecialchars($_SESSION['turks_status']['correct']) . '</p>';
+                            echo '<p style="color: red; font-weight: bold;">Fout, het correcte antwoord is: ' . htmlspecialchars($_SESSION['turks_status']['correct']) . '</p>';
                         }
                         unset($_SESSION['turks_status']);
                     }
                 ?>
+            </div>
+            <div>
+                <a href="turksmenu.php"><button>Terug naar menu</button></a>
             </div>
         </section>
     </main>
