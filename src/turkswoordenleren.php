@@ -55,7 +55,7 @@
             unset($_SESSION['turks_total_questions']);
             
 
-            header('Location: index.php');
+            header('Location: turksmenu.php');
             exit();
         } elseif (isset($_POST['question_index'])) {
             $index = (int)$_POST['question_index'];
