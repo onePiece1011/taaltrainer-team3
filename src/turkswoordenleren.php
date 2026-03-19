@@ -126,9 +126,6 @@
 
                     if ($finished) {
                         echo '<p>Je hebt de vragenlijst afgerond!</p>';
-                        echo '<form method="post">';
-                        echo '<button type="submit" name="restart" value="1">Opnieuw beginnen</button>';
-                        echo '</form>';
                     } elseif (!$currentQuestion) {
                         echo '<p>Geen woorden beschikbaar.</p>';
                     } else {
