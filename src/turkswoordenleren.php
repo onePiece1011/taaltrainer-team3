@@ -4,6 +4,18 @@
 
     $username = $_SESSION['username'];
 
+    if (isset($_GET['reset']) && $_GET['reset'] === 'true') {
+        unset($_SESSION['turks_questions']);
+        unset($_SESSION['turks_question_index']);
+        unset($_SESSION['turks_wrong']);
+        unset($_SESSION['turks_status']);
+        unset($_SESSION['turks_repeat_phase']);
+        unset($_SESSION['turks_answered']);
+        unset($_SESSION['turks_total_questions']);
+        header('Location: turkswoordenleren.php');
+        exit();
+    }
+
     if (!isset($_SESSION['turks_questions']) || !isset($_SESSION['turks_question_index'])) {
         $result = $conn->query("SELECT turkish_word, dutch_word FROM vocabulary WHERE turkish_word IS NOT NULL AND dutch_word IS NOT NULL AND category = 'Woorden'");
         $all = [];
@@ -79,6 +91,7 @@
     $currentQuestion = $_SESSION['turks_questions'][$currentIndex] ?? null;
     $finished = isset($_SESSION['turks_status']['result']) && $_SESSION['turks_status']['result'] === 'finished';
     $totalQuestions = count($_SESSION['turks_questions']);
+    $isRepeatPhase = $_SESSION['turks_repeat_phase'] ?? false;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -119,7 +132,12 @@
                         $options = array_merge([$correct_dutch], $wrong_options);
                         shuffle($options);
 
-                        // Added question progress display
+
+                        if ($isRepeatPhase) {
+                            echo '<p><strong>Herhalingsfase:</strong> Je oefent nu de woorden die je eerder fout had.</p>';
+                        }
+
+
                         echo '<p class="question-progress">Vraag ' . ($currentIndex + 1) . ' van ' . $totalQuestions . '</p>';
                         echo '<p>Wat is de Nederlandse vertaling van: <strong>' . htmlspecialchars($turkish_word) . '</strong></p>';
                         echo '<form method="post">';
@@ -128,25 +146,33 @@
                             echo '<label for="opt' . $i . '">' . htmlspecialchars($opt) . '</label><br>';
                         }
                         echo '<input type="hidden" name="question_index" value="' . $currentIndex . '">';
+                        
+ 
+                        echo '<div style="display: flex; gap: 10px; margin-top: 10px;">';
                         echo '<input type="submit" value="Controleer">';
+                        echo '<button type="submit" name="restart" value="1">Opnieuw beginnen</button>';
+                        echo '</div>';
                         echo '</form>';
                     }
 
-                    // Show status message and clear it
                     if (isset($_SESSION['turks_status']) && is_array($_SESSION['turks_status'])) {
                         if ($_SESSION['turks_status']['result'] === 'correct') {
-                            echo '<p style="color: green; font-weight: bold;">Correct!</p>';
+                            echo '<p>Correct!</p>';
                         } elseif ($_SESSION['turks_status']['result'] === 'wrong') {
-                            echo '<p style="color: red; font-weight: bold;">Fout, het correcte antwoord is: ' . htmlspecialchars($_SESSION['turks_status']['correct']) . '</p>';
+                            echo '<p>Fout, het juiste antwoord is: ' . htmlspecialchars($_SESSION['turks_status']['correct']) . '</p>';
                         }
                         unset($_SESSION['turks_status']);
                     }
                 ?>
             </div>
-            <div>
-                <a href="turksmenu.php"><button>Terug naar menu</button></a>
-            </div>
         </section>
+        
+        <div>
+            <form action="menu.php" method="post">
+                <input type="hidden" name="reset_turks" value="true">
+                <button type="submit">Terug naar menu</button>
+            </form>
+        </div>
     </main>
 </body>
 </html>
