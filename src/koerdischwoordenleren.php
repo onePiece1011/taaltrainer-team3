@@ -17,7 +17,7 @@
         exit();
     }
 
-    if (!isset($_SESSION['koerdisch_questions']) || !isset($_SESSION['turks_question_index'])) {
+    if (!isset($_SESSION['koerdisch_questions']) || !isset($_SESSION['koerdisch_question_index'])) {
         $result = $conn->query("SELECT kurdish_word, dutch_word FROM vocabulary WHERE kurdish_word IS NOT NULL AND dutch_word IS NOT NULL AND category = 'Woorden'");
         $all = [];
         while ($row = $result->fetch_assoc()) {
@@ -113,7 +113,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turks Leren</title>
+    <title>Koerdisch Leren</title>
     <link rel="stylesheet" href="css/1vooralles.css">
 </head>
 <body>

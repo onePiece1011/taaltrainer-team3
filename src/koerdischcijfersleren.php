@@ -13,11 +13,11 @@
         unset($_SESSION['koerdisch_repeat_phase']);
         unset($_SESSION['koerdisch_answered']);
         unset($_SESSION['koerdisch_total_questions']);
-        header('Location: koerdischwoordenleren.php');
+        header('Location: koerdischcijfersleren.php');
         exit();
     }
 
-    if (!isset($_SESSION['koerdisch_questions']) || !isset($_SESSION['turks_question_index'])) {
+    if (!isset($_SESSION['koerdisch_questions']) || !isset($_SESSION['koerdisch_question_index'])) {
         $result = $conn->query("SELECT kurdish_word, dutch_word FROM vocabulary WHERE kurdish_word IS NOT NULL AND dutch_word IS NOT NULL AND category = 'Getallen'");
         $all = [];
         while ($row = $result->fetch_assoc()) {
@@ -42,7 +42,7 @@
             unset($_SESSION['koerdisch_repeat_phase']);
             unset($_SESSION['koerdisch_answered']);
             unset($_SESSION['koerdisch_total_questions']);
-            header('Location: koerdischwoordenleren.php');
+            header('Location: koerdischcijfersleren.php');
             exit();
         } elseif (isset($_POST['back_to_menu'])) {
 
@@ -97,7 +97,7 @@
                 }
             }
 
-            header('Location: koerdischwoordenleren.php');
+            header('Location: koerdischcijfersleren.php');
             exit();
         }
     }
@@ -113,7 +113,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turks Leren</title>
+    <title>koerdisch Leren</title>
     <link rel="stylesheet" href="css/1vooralles.css">
 </head>
 <body>
