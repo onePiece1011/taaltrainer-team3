@@ -34,17 +34,7 @@
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (isset($_POST['restart'])) {
-            unset($_SESSION['turks_questions']);
-            unset($_SESSION['turks_question_index']);
-            unset($_SESSION['turks_wrong']);
-            unset($_SESSION['turks_status']);
-            unset($_SESSION['turks_repeat_phase']);
-            unset($_SESSION['turks_answered']);
-            unset($_SESSION['turks_total_questions']);
-            header('Location: turkscijfersleren.php');
-            exit();
-        } elseif (isset($_POST['back_to_menu'])) {
+        if (isset($_POST['back_to_menu'])) {
 
             unset($_SESSION['turks_questions']);
             unset($_SESSION['turks_question_index']);
@@ -126,9 +116,6 @@
 
                     if ($finished) {
                         echo '<p>Je hebt de vragenlijst afgerond!</p>';
-                        echo '<form method="post">';
-                        echo '<button type="submit" name="restart" value="1">Opnieuw beginnen</button>';
-                        echo '</form>';
                     } elseif (!$currentQuestion) {
                         echo '<p>Geen woorden beschikbaar.</p>';
                     } else {
