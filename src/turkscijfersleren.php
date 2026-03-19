@@ -120,7 +120,7 @@
     <main>
         <section>
             <div>
-                <h1>Turks oefenen</h1>
+                <h1>Turks cijfers oefenen</h1>
                 <?php
                     $status = $_SESSION['turks_status'] ?? null;
 

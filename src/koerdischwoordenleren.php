@@ -120,7 +120,7 @@
     <main>
         <section>
             <div>
-                <h1>Turks oefenen</h1>
+                <h1>Koerdisch woorden oefenen</h1>
                 <?php
                     $status = $_SESSION['koerdisch_status'] ?? null;
 
