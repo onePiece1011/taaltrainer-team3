@@ -13,7 +13,7 @@
         unset($_SESSION['turks_repeat_phase']);
         unset($_SESSION['turks_answered']);
         unset($_SESSION['turks_total_questions']);
-        header('Location: turkswoordenleren.php');
+        header('Location: turkscijfersleren.php');
         exit();
     }
 
@@ -42,7 +42,7 @@
             unset($_SESSION['turks_repeat_phase']);
             unset($_SESSION['turks_answered']);
             unset($_SESSION['turks_total_questions']);
-            header('Location: turkswoordenleren.php');
+            header('Location: turkscijfersleren.php');
             exit();
         } elseif (isset($_POST['back_to_menu'])) {
 
@@ -97,7 +97,7 @@
                 }
             }
 
-            header('Location: turkswoordenleren.php');
+            header('Location: turkscijfersleren.php');
             exit();
         }
     }
