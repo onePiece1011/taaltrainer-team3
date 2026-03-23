@@ -1,5 +1,8 @@
 <?php
     require 'auth.php';
+    include 'DatabaseConnect.php';
+
+    $username = $_SESSION['username'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,13 +19,33 @@
                 <img src="Foto's/Logo.png" class="logo" width="100px" alt="Logo">
             </div>
             <div class= "knop">
-             <div>   <a href="logout.php"><button class="button">uitloggen</button></a> </div>
-            <div>    <button class="button"><p>dklfja;lafjsa;lsdfkj</p></button></div>
+                <div>   
+                    <a href="logout.php"><button class="button">uitloggen</button></a>
+                </div>
+                <div>
+                    <button class="button">
+                        <?php
+                            $sql = "SELECT xp_points FROM users WHERE username = '$username'";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    echo "points:" . $row["xp_points"];
+                                }
+                            } else {
+                                echo "0 results";
+                            }
+                        ?>
+                    </button>
+                </div>
+                <div>
+                    <button class="button"><p>dklfja;lafjsa;lsdfkj</p></button>
+                </div>
             </div>
         </section>
         <section>
             <div>
-                <a href="turksmenu.php"><button>Truks</button></a>
+                <a href="turksmenu.php"><button>Turks</button></a>
+                
             </div>
             <div>
                 <a href="koerdischmenu.php"><button>Koerdisch</button></a>
