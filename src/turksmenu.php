@@ -12,6 +12,7 @@
 <body>
     <button onclick="window.location.href='turkswoordenleren.php'">Woorden Leren</button>
     <button onclick="window.location.href='turkscijfersleren.php'">Cijfers Leren</button>
+    <button onclick="window.location.href='turkszinnenleren.php'">Zinnen Leren</button>
     <button onclick="window.location.href='index.php'">Hoofdmenu</button>
 </body>
 </html>

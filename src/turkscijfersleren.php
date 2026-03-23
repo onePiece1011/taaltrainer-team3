@@ -118,6 +118,12 @@
 </head>
 <body>
     <main>
+<<<<<<< HEAD
+        <button onclick="window.location.href='turkswoordenleren.php'">Woorden Leren</button>
+        <button onclick="window.location.href='turkszinnenleren.php'">Zinnen Leren</button>
+        <button onclick="window.location.href='turksmenu.php'">Turks menu</button>
+        <button onclick="window.location.href='index.php'">Hoofdmenu</button>
+=======
         <section>
             <div>
                 <h1>Turks cijfers oefenen</h1>
