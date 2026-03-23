@@ -14,12 +14,3 @@ body {
     left: 500px;
     top: 500;
 }
-.knop {
-    display: flex;
-}
-.knop div {
-    background-color: #f1f1f1;
-  margin: 10px;
-  padding: 20px;
-  font-size: 30px;
-}
