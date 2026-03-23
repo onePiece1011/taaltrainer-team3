@@ -18,31 +18,26 @@
         <section class="indexTop">
             <div>
                 <img src="Foto's/Logo.png" class="logo" width="100px" alt="Logo">
+                <a href="logout.php"><button class="button">uitloggen</button></a>
             </div>
+
             <div class= "knop">
-                <div>   
-                    <a href="logout.php"><button class="button">uitloggen</button></a>
-                </div>
-                <div>
-                    <button class="button">
-                        <?php
-                            $sql = "SELECT xp_points FROM users WHERE username = '$username'";
-                            $result = $conn->query($sql);
+                <button class="button">
+                    <?php
+                        $sql = "SELECT xp_points FROM users WHERE username = '$username'";
+                        $result = $conn->query($sql);
                             if ($result->num_rows > 0) {
-                                while($row = $result->fetch_assoc()) {
-                                    echo "points:" . $row["xp_points"];
-                                }
-                            } else {
-                                echo "0 results";
+                            while($row = $result->fetch_assoc()) {
+                                echo "points:" . $row["xp_points"];
                             }
-                        ?>
-                    </button>
-                </div>
-                <div>
-                    <button class="button">
-                        <?= $username ?>
-                    </button>
-                </div>
+                        } else {
+                            echo "0 results";
+                        }
+                    ?>
+                </button>
+                <button class="button">
+                    <?= $username ?>
+                </button>
             </div>
         </section>
         <section>
