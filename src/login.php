@@ -16,7 +16,7 @@
             <div style="text-align:center" class=>  
                 <h1 class="titleLog">inloggen</h1>
                 <form method="post">
-                    <label for="username">username</label>
+                    <label for="username">Gebruikersnaam</label>
                     <input type="text" name="username" id="username" required>
                     <label for="password">wachtwoord</label>
                     <input type="password" name="password" id="password" required>

@@ -17,7 +17,7 @@
             <div style="text-align:center">
                 <h1 class="titleLog">Sign up</h1>
                 <form action="signUp.php" method="post">
-                    <label for="username">username</label>
+                    <label for="username">Gebruikersnaam</label>
                     <input type="text" name="username" id="username" required>
                     <label for="password">wachtwoord</label>
                     <input type="password" name="password" id="password" required>
