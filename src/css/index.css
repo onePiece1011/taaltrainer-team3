@@ -4,3 +4,9 @@
     margin: 5px;
     border-radius: 5px;
 }
+
+.indexTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
