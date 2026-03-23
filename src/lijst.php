@@ -14,6 +14,7 @@
         <h1>Woordenlijst</h1>
     </header>
     <main>
+        <button onclick="window.location.href='index.php'">Hoofdmenu</button>
         <section>
             <h2>Eten & Drinken</h2>
             <table>
