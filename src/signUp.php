@@ -14,7 +14,7 @@
 <body>
     <main>
         <section class="inlogSect">
-            <div>
+            <div style="text-align:center">
                 <h1 class="titleLog">Sign up</h1>
                 <form action="signUp.php" method="post">
                     <label for="username">username</label>

@@ -51,7 +51,7 @@
         </section>
         <section>
                 <div>
-                    <a href="lijst.php"><button>pesis</button></a>
+                    <a href="lijst.php"><button>Woordenlijst</button></a>
                     
                 </div>
         </section>
