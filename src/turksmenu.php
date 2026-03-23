@@ -9,8 +9,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/1vooralles.css">
 </head>
-<body>
-    <main>
+<body class="menu-page">
+    <main class="menu-block">
         <button onclick="window.location.href='turkswoordenleren.php'">Woorden Leren</button>
         <button onclick="window.location.href='turkscijfersleren.php'">Cijfers Leren</button>
         <button onclick="window.location.href='turkszinnenleren.php'">Zinnen Leren</button>
