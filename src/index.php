@@ -28,7 +28,7 @@
                         $result = $conn->query($sql);
                             if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
-                                echo "points:" . $row["xp_points"];
+                                echo "points: " . $row["xp_points"];
                             }
                         } else {
                             echo "0 results";
