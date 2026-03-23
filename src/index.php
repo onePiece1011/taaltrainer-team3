@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/1vooralles.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
     <main>

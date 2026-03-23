@@ -1,0 +1,7 @@
+.logo {
+    border: 2px solid #ff00ff;
+    box-shadow: 0 0 10px #ff00ff;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+}
