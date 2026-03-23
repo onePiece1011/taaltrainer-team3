@@ -18,10 +18,10 @@
         <section class="indexTop">
             <div>
                 <img src="Foto's/Logo.png" class="logo" width="100px" alt="Logo">
-                <a href="logout.php"><button class="button">uitloggen</button></a>
             </div>
 
             <div class= "knop">
+                <a href="logout.php"><button class="button">uitloggen</button></a>
                 <button class="button">
                     <?php
                         $sql = "SELECT xp_points FROM users WHERE username = '$username'";
