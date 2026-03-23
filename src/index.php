@@ -38,7 +38,9 @@
                     </button>
                 </div>
                 <div>
-                    <button class="button"><p>dklfja;lafjsa;lsdfkj</p></button>
+                    <button class="button">
+                        <?= $username ?>
+                    </button>
                 </div>
             </div>
         </section>
