@@ -5,10 +5,6 @@
     border-radius: 5px;
 }
 
-main {
-    display: flex;
-    justify-content: center;
-}
 .indexTop {
     display: flex;
     justify-content: space-between;
