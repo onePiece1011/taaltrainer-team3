@@ -126,6 +126,37 @@
 
                     if ($finished) {
                         echo '<p>Je hebt de vragenlijst afgerond!</p>';
+
+                        $today = date('Y-m-d');
+                        $yesterday = date('Y-m-d', strtotime("-1 day"));
+
+                        $query = $conn->prepare("SELECT streak, last_date FROM users WHERE username = ?");
+                        $query->bind_param("s", $username);
+                        $query->execute();
+                        $result = $query->get_result();
+                        $streakData = $result->fetch_assoc();
+
+                        if (!$streakData) {
+
+                            $insert = $conn->prepare("INSERT INTO users (streak, last_date, username) VALUES (1, ?, ?)");
+                            $insert->bind_param("ss", $today, $username);
+                            $insert->execute();
+                        } else {
+                            $lastDate = $streakData['last_date'];
+                            $currentStreak = $streakData['streak'];
+
+                            if ($lastDate == $yesterday) {
+
+                                $update = $conn->prepare("UPDATE users SET streak = streak + 1, last_date = ? WHERE username = ?");
+                                $update->bind_param("ss", $today, $username);
+                                $update->execute();
+                            } elseif ($lastDate != $today) {
+
+                                $update = $conn->prepare("UPDATE users SET streak = 1, last_date = ? WHERE username = ?");
+                                $update->bind_param("ss", $today, $username);
+                                $update->execute();
+                            }
+                        }
                     } elseif (!$currentQuestion) {
                         echo '<p>Geen woorden beschikbaar.</p>';
                     } else {

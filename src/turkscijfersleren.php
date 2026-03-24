@@ -134,7 +134,6 @@
                         $today = date('Y-m-d');
                         $yesterday = date('Y-m-d', strtotime("-1 day"));
 
-                        // Fixed: Added bind_param and get_result for MySQLi
                         $query = $conn->prepare("SELECT streak, last_date FROM users WHERE username = ?");
                         $query->bind_param("s", $username);
                         $query->execute();
@@ -142,7 +141,7 @@
                         $streakData = $result->fetch_assoc();
 
                         if (!$streakData) {
-                            // Fixed: Removed array execution, used bind_param
+
                             $insert = $conn->prepare("INSERT INTO users (streak, last_date, username) VALUES (1, ?, ?)");
                             $insert->bind_param("ss", $today, $username);
                             $insert->execute();
@@ -151,12 +150,12 @@
                             $currentStreak = $streakData['streak'];
 
                             if ($lastDate == $yesterday) {
-                                // Fixed: Changed $insert to $update, added bind_param
+
                                 $update = $conn->prepare("UPDATE users SET streak = streak + 1, last_date = ? WHERE username = ?");
                                 $update->bind_param("ss", $today, $username);
                                 $update->execute();
                             } elseif ($lastDate != $today) {
-                                // Fixed: Changed $insert to $update, added bind_param
+
                                 $update = $conn->prepare("UPDATE users SET streak = 1, last_date = ? WHERE username = ?");
                                 $update->bind_param("ss", $today, $username);
                                 $update->execute();
