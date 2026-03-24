@@ -118,12 +118,10 @@
 </head>
 <body>
     <main>
-<<<<<<< HEAD
         <button onclick="window.location.href='turkswoordenleren.php'">Woorden Leren</button>
         <button onclick="window.location.href='turkszinnenleren.php'">Zinnen Leren</button>
         <button onclick="window.location.href='turksmenu.php'">Turks menu</button>
         <button onclick="window.location.href='index.php'">Hoofdmenu</button>
-=======
         <section>
             <div>
                 <h1>Turks cijfers oefenen</h1>
@@ -132,6 +130,33 @@
 
                     if ($finished) {
                         echo '<p>Je hebt de vragenlijst afgerond!</p>';
+                        // Stel $userId is de ingelogde gebruiker
+                        $today = date('Y-m-d');
+                        $yesterday = date('Y-m-d', strtotime("-1 day"));
+
+                        // 1. Haal de huidige streak gegevens op
+                        $query = $db->prepare("SELECT streak, last_date FROM users WHERE username = '$username'");
+                        $streakData = $query->fetch();
+
+                        if (!$streakData) {
+                           // Gebruiker heeft nog nooit een streak gehad
+                            $insert = $db->prepare("INSERT INTO users (streak, last_date) VALUES (1, ?)");
+                            $insert->execute([$today]);
+                        } else {
+                            $lastDate = $streakData['last_date'];
+                            $currentStreak = $streakData['streak'];
+
+                            if ($lastDate == $yesterday) {
+                               // Streak gaat door!
+                                $update = $db->prepare("UPDATE users SET streak = streak + 1, last_date = ? WHERE username = '$username'");
+                                $update->execute([$today]);
+                            } elseif ($lastDate != $today) {
+                               // Te lang geleden, reset naar 1
+                                $update = $db->prepare("UPDATE users SET streak = 1, last_date = ? WHERE username = '$username'");
+                                $update->execute([$today]);
+                            }
+                           // Als $lastDate == $today, doen we niets (streak al geteld vandaag)
+                        }
                     } elseif (!$currentQuestion) {
                         echo '<p>Geen woorden beschikbaar.</p>';
                     } else {
