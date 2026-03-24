@@ -38,18 +38,19 @@
                 <Button class="nonbutton">
                     <?= $username ?>
                 </Button>
-                <button>dagelijkls Streak</button>
-                 <?php
-                        $sql = "SELECT xp_points FROM users WHERE username = '$username'";
+                <button>
+                    <?php
+                        $sql = "SELECT streak FROM users WHERE username = '$username'";
                         $result = $conn->query($sql);
                             if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
-                                echo "punten: " . $row["xp_points"];
+                                echo "dagelijkse streak: " . $row["streak"];
                             }
                         } else {
                             echo "0 resultaten";
                         }
                     ?>
+                </button>
             </div>
         </section>
         <section>
