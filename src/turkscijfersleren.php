@@ -139,11 +139,7 @@
                         $query->execute();
                         $streakData = $query->fetch();
 
-                        if (!$streakData) {
-                           // Gebruiker heeft nog nooit een streak gehad
-                            $insert = $db->prepare("INSERT INTO users (streak, last_date) VALUES (1, ?)");
-                            $insert->execute([$today]);
-                        } else {
+                        if ($streakData) {
                             $lastDate = $streakData['last_date'];
                             $currentStreak = $streakData['streak'];
 
@@ -157,6 +153,10 @@
                                 $update->execute([$today]);
                             }
                            // Als $lastDate == $today, doen we niets (streak al geteld vandaag)
+                        } else {
+                            // Eerste keer dat de gebruiker een streak krijgt
+                            $insert = $db->prepare("UPDATE users SET streak = 1, last_date = ? WHERE username = '$username'");
+                            $insert->execute([$today]);
                         }
                     } elseif (!$currentQuestion) {
                         echo '<p>Geen woorden beschikbaar.</p>';
