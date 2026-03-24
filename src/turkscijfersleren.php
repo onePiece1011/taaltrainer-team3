@@ -135,13 +135,13 @@
                         $yesterday = date('Y-m-d', strtotime("-1 day"));
 
 
-                        $query = $db->prepare("SELECT streak, last_date FROM users WHERE username = '$username'");
+                        $query = $conn->prepare("SELECT streak, last_date FROM users WHERE username = '$username'");
                         $query->execute();
                         $streakData = $query->fetch();
 
                         if (!$streakData) {
 
-                            $insert = $db->prepare("INSERT INTO users (streak, last_date) VALUES (1, ?)");
+                            $insert = $conn->prepare("INSERT INTO users (streak, last_date) VALUES (1, ?)");
                             $insert->execute([$today]);
                         } else {
                             $lastDate = $streakData['last_date'];
@@ -149,11 +149,11 @@
 
                             if ($lastDate == $yesterday) {
 
-                                $update = $db->prepare("UPDATE users SET streak = streak + 1, last_date = ? WHERE username = '$username'");
+                                $update = $conn->prepare("UPDATE users SET streak = streak + 1, last_date = ? WHERE username = '$username'");
                                 $update->execute([$today]);
                             } elseif ($lastDate != $today) {
 
-                                $update = $db->prepare("UPDATE users SET streak = 1, last_date = ? WHERE username = '$username'");
+                                $update = $conn->prepare("UPDATE users SET streak = 1, last_date = ? WHERE username = '$username'");
                                 $update->execute([$today]);
                             }
 
