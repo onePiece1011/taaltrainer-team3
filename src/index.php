@@ -42,7 +42,7 @@
                     <?php
                         $sql = "SELECT streak FROM users WHERE username = '$username'";
                         $result = $conn->query($sql);
-                            if ($result->num_rows > 0) {
+                        if ($result->num_rows > 0) {
                             while($row = $result->fetch_assoc()) {
                                 echo "dagelijkse streak: " . $row["streak"];
                             }

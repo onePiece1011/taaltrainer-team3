@@ -135,8 +135,9 @@
                         $yesterday = date('Y-m-d', strtotime("-1 day"));
 
                         // 1. Haal de huidige streak gegevens op
-                        $query = $db->prepare("SELECT streak, last_date FROM users WHERE username = '$username'");
-                        $streakData = $query->fetch();
+                        $sql = "SELECT streak, last_date FROM users WHERE username = '$username'";
+                        $streakData = $conn->query($sql);
+                        
 
                         if (!$streakData) {
                            // Gebruiker heeft nog nooit een streak gehad
