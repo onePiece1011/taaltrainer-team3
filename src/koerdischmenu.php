@@ -11,8 +11,8 @@
 </head>
 <body class="menu-page">
     <main class="menu-block">
-        <button onclick="window.location.href='koerdischcijfersleren.php'">Cijfers Leren</button>
         <button onclick="window.location.href='koerdischwoordenleren.php'">Woorden Leren</button>
+        <button onclick="window.location.href='koerdischcijfersleren.php'">Cijfers Leren</button>
         <button onclick="window.location.href='koerdischzinnenleren.php'">Zinnen Leren</button>
         <button onclick="window.location.href='index.php'">Hoofdmenu</button>
     </main>
