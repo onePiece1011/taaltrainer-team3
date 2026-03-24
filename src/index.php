@@ -22,7 +22,7 @@
 
             <div class= "knop">
                 <a href="logout.php"><button class="button">uitloggen</button></a>
-                <button class="button">
+                <p class="nonbutton">
                     <?php
                         $sql = "SELECT xp_points FROM users WHERE username = '$username'";
                         $result = $conn->query($sql);
@@ -34,10 +34,10 @@
                             echo "0 resultaten";
                         }
                     ?>
-                </button>
-                <button class="button">
+                </p>
+                <p class="nonbutton">
                     <?= $username ?>
-                </button>
+                </p>
             </div>
         </section>
         <section>
