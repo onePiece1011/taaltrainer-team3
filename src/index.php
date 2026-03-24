@@ -35,9 +35,6 @@
                         }
                     ?>
                 </button>
-                <Button class="nonbutton">
-                    <?= $username ?>
-                </Button>
                 <button>
                     <?php
                         $sql = "SELECT streak FROM users WHERE username = '$username'";
@@ -51,6 +48,9 @@
                         }
                     ?>
                 </button>
+                <Button class="nonbutton">
+                    <?= $username ?>
+                </Button>
             </div>
         </section>
         <section>
