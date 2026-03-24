@@ -144,7 +144,6 @@
                             $currentStreak = $streakData['streak'];
 
                             if ($lastDate == $yesterday) {
-                               // Streak gaat door!
                                 $update = $db->prepare("UPDATE users SET streak = streak + 1, last_date = ? WHERE username = '$username'");
                                 $update->execute([$today]);
                             } elseif ($lastDate != $today) {
