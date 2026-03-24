@@ -142,7 +142,8 @@
                         if (!$streakData) {
 
                             $insert = $conn->prepare("INSERT INTO users (streak, last_date) VALUES (1, ?)");
-                            $insert->execute([$today]);
+                            $insert->bind_param("s", $today);
+                            $insert->execute();
                         } else {
                             $lastDate = $streakData['last_date'];
                             $currentStreak = $streakData['streak'];
@@ -154,7 +155,8 @@
                             } elseif ($lastDate != $today) {
 
                                 $update = $conn->prepare("UPDATE users SET streak = 1, last_date = ? WHERE username = '$username'");
-                                $update->execute([$today]);
+                                $insert->bind_param("s", $today);
+                                $insert->execute();
                             }
 
                         }
