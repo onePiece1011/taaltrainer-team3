@@ -130,11 +130,10 @@
 
                     if ($finished) {
                         echo '<p>Je hebt de vragenlijst afgerond!</p>';
-                        // Stel $userId is de ingelogde gebruiker
+                        
                         $today = date('Y-m-d');
                         $yesterday = date('Y-m-d', strtotime("-1 day"));
 
-                        // 1. Haal de huidige streak gegevens op
                         $query = $db->prepare("SELECT streak, last_date FROM users WHERE username = '$username'");
                         $query->execute();
                         $streakData = $query->fetch();
@@ -147,13 +146,11 @@
                                 $update = $db->prepare("UPDATE users SET streak = streak + 1, last_date = ? WHERE username = '$username'");
                                 $update->execute([$today]);
                             } elseif ($lastDate != $today) {
-                               // Te lang geleden, reset naar 1
                                 $update = $db->prepare("UPDATE users SET streak = 1, last_date = ? WHERE username = '$username'");
                                 $update->execute([$today]);
                             }
-                           // Als $lastDate == $today, doen we niets (streak al geteld vandaag)
+
                         } else {
-                            // Eerste keer dat de gebruiker een streak krijgt
                             $insert = $db->prepare("UPDATE users SET streak = 1, last_date = ? WHERE username = '$username'");
                             $insert->execute([$today]);
                         }
